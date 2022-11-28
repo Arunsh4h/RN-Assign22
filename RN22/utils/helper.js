@@ -1,4 +1,8 @@
 import axios from 'axios';
+import {Platform} from 'react-native';
+
+const host =
+  Platform.OS === 'ios' ? 'http://127.0.0.1:8080' : 'http://10.0.2.2:8080';
 
 function padTo2Digits(num) {
   return num.toString().padStart(2, '0');
@@ -24,7 +28,7 @@ export function convertMsToTime(milliseconds) {
 }
 
 export const bookShift = async shiftId => {
-  return axios.post(`http://10.0.2.2:8080/shifts/${shiftId}/book`);
+  return axios.post(`${host}/shifts/${shiftId}/book`);
   // try {
   //   const res = await axios.post(
   //     `http://127.0.0.1:8080/shifts/${shiftId}/book`
@@ -36,7 +40,7 @@ export const bookShift = async shiftId => {
 };
 
 export const cancelShift = async shiftId => {
-  return await axios.post(`http://10.0.2.2:8080/shifts/${shiftId}/cancel`);
+  return await axios.post(`${host}/shifts/${shiftId}/cancel`);
   // try {
   //   const res = await axios.post(
   //     `http://127.0.0.1:8080/shifts/${shiftId}/cancel`

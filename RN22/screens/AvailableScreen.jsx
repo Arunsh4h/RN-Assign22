@@ -8,6 +8,7 @@ import {
   StatusBar,
   ScrollView,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 
 import ShiftScreen from '../screens/ShiftScreen';
@@ -16,7 +17,6 @@ import TabBar from '../components/TabBar';
 import Heading from '../components/Heading';
 import axios from 'axios';
 import Shift from '../components/Shift';
-const url = 'http://10.0.2.2:8080/shifts';
 
 const HelsinkiArea = 'Helsinki';
 const TurkuArea = 'Turku';
@@ -33,6 +33,13 @@ export default function AvailableScreen() {
   const [shiftInteraction, setShiftInteraction] = useState('');
 
   const [CurrentData, setCurrentData] = useState([]);
+
+  const url =
+    Platform.OS === 'ios'
+      ? 'http://127.0.0.1:8080/shifts'
+      : 'http://10.0.2.2:8080/shifts';
+
+  // console.log('--------', Platform.OS);
 
   useEffect(() => {
     const getboookingFromApi = async () => {

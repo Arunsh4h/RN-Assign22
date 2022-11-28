@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -6,25 +6,25 @@ import {
   Text,
   useColorScheme,
   View,
-} from "react-native";
+} from 'react-native';
 
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import axios from "axios";
-import Shift from "./screeno/Shift";
-import Available from "./screeno/Available";
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import axios from 'axios';
+import Shift from './screeno/Shift';
+import Available from './screeno/Available';
 
 function HomeScreen() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Home Screen</Text>
     </View>
   );
 }
 function DetailsScreen() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Details Screen</Text>
     </View>
   );
@@ -47,7 +47,7 @@ const App = () => {
   //     });
   // }, []);
 
-  const isDarkMode = useColorScheme() === "dark";
+  const isDarkMode = useColorScheme() === 'dark';
 
   return (
     // <SafeAreaView style={backgroundStyle}>

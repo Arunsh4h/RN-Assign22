@@ -15,7 +15,11 @@ import {Colors} from '../constants/Colors';
 import {useRoute} from '@react-navigation/native';
 import {useIsFocused} from '@react-navigation/native';
 // import { ScrollView } from "react-native-gesture-handler";
-const url = 'http://10.0.2.2:8080/shifts';
+const url =
+  Platform.OS === 'ios'
+    ? 'http://127.0.0.1:8080/shifts'
+    : 'http://10.0.2.2:8080/shifts';
+
 // const url = "https://reactnative.dev/boooking.json"
 import {totalShiftHrsCalculator} from '../utils/helper';
 import MyShiftItem from '../components/myshiftitem';
