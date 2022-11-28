@@ -16,7 +16,7 @@ import {useRoute} from '@react-navigation/native';
 import {useIsFocused} from '@react-navigation/native';
 // import { ScrollView } from "react-native-gesture-handler";
 const url = 'http://10.0.2.2:8080/shifts';
-// const url = "https://reactnative.dev/movies.json"
+// const url = "https://reactnative.dev/boooking.json"
 import {totalShiftHrsCalculator} from '../utils/helper';
 import MyShiftItem from '../components/myshiftitem';
 
@@ -27,7 +27,7 @@ const ShiftScreen = ({navigation}) => {
   const [todayTotalHrs, setTodayTotalHrs] = useState(0);
 
   useEffect(() => {
-    const getMoviesFromApi = async () => {
+    const getboookingFromApi = async () => {
       const res = await axios.get(url);
       const bookedShift = res.data.filter(e => e.booked);
       setTodayCount(bookedShift.length);
@@ -35,10 +35,10 @@ const ShiftScreen = ({navigation}) => {
       const reversedShift = bookedShift.reverse();
       setShifts([...reversedShift]);
     };
-    getMoviesFromApi();
+    getboookingFromApi();
 
     navigation.addListener('focus', () => {
-      getMoviesFromApi();
+      getboookingFromApi();
     });
 
     // console.log(navigation.getId());
