@@ -35,7 +35,7 @@ export default function AvailableScreen() {
   const [CurrentData, setCurrentData] = useState([]);
 
   useEffect(() => {
-    const getMoviesFromApi = async () => {
+    const getboookingFromApi = async () => {
       const res = await axios.get(url);
       setAvailabledata(res.data);
       const Data = res.data;
@@ -53,7 +53,7 @@ export default function AvailableScreen() {
         }
       });
     };
-    getMoviesFromApi();
+    getboookingFromApi();
   }, []);
 
   useEffect(() => {
@@ -107,6 +107,7 @@ export default function AvailableScreen() {
                 desc={e.area}
                 status={e.booked}
                 id={e.id}
+                allShifts={Availabledata}
               />
             </Fragment>
           ))}
