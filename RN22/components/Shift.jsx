@@ -1,4 +1,10 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ActivityIndicator,
+} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {Colors} from '../constants/Colors';
 
@@ -17,18 +23,22 @@ const Shift = ({
 }) => {
   const [isOverlaped, setIsOverlaped] = useState(false);
   const [shiftStatus, setShiftStatus] = useState(status);
+  const [isLoading, setIsLoading] = useState(false);
   const handleBooking = async () => {
     console.log('id', id);
+    setIsLoading(true);
     if (!shiftStatus) {
       bookShift(id)
         .then(res => {
           console.log(id);
           let data = res.data;
           setShiftStatus(!shiftStatus);
+          setIsLoading(false);
         })
         .catch(err => {
           setIsOverlaped(true);
           console.log('err', err.message);
+          setIsLoading(false);
         });
       // const res = await cancelShift(id, setShiftInteraction)
     } else {
@@ -37,9 +47,11 @@ const Shift = ({
           let data = res.data;
           setShiftStatus(!shiftStatus);
           handleIsActionTriggered(id);
+          setIsLoading(false);
         })
         .catch(err => {
           console.log('err', err.message);
+          setIsLoading(false);
         });
     }
   };
@@ -98,7 +110,13 @@ const Shift = ({
                 ? '#A4B8D3'
                 : 'green',
             }}>
-            {shiftStatus ? 'Cancel' : 'Book'}
+            {isLoading ? (
+              <ActivityIndicator size="small" color="#00ff00" />
+            ) : shiftStatus ? (
+              'Cancel'
+            ) : (
+              'Book'
+            )}
           </Text>
         </TouchableOpacity>
       </View>
