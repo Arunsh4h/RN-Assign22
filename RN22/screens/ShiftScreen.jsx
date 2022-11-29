@@ -79,8 +79,8 @@ const ShiftScreen = ({navigation}) => {
               />
             </Fragment>
           ))}
-          <Heading title={'Tomorrow'} noOfShift={'2 shifts'} hrs={'4 h'} />
-          <Heading title={'Tomorrow'} noOfShift={'2 shifts'} hrs={'4 h'} />
+          {/* <Heading title={'Tomorrow'} noOfShift={'2 shifts'} hrs={'4 h'} />
+          <Heading title={'Tomorrow'} noOfShift={'2 shifts'} hrs={'4 h'} /> */}
         </View>
         <View style={styles.footerContainer}></View>
       </ScrollView>
