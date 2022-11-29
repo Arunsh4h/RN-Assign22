@@ -1,5 +1,5 @@
 {
-  "name": "RN22",
+  "name": "clashnato",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,8 +10,19 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/native": "^6.0.14",
+    "@react-navigation/native-stack": "^6.9.1",
+    "axios": "^1.2.0-alpha.1",
+    "moment": "^2.29.4",
     "react": "18.1.0",
-    "react-native": "0.70.6"
+    "react-native": "0.70.6",
+    "react-native-gesture-handler": "^2.8.0",
+    "react-native-reanimated": "^2.13.0",
+    "react-native-safe-area-context": "^4.4.1",
+    "react-native-screens": "^3.18.2",
+    "react-native-svg": "^13.6.0",
+    "react-native-svg-transformer": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
